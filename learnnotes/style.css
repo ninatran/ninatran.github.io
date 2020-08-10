@@ -1,0 +1,17 @@
+body{
+    font-family: serif;
+}
+
+#playerStats{
+    width: 200px;
+    grid-template-columns: auto auto;
+    margin: 10px auto;
+    grid-column-gap: 5px;
+}
+
+.label{
+
+}
+.value{
+
+}

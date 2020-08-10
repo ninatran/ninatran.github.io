@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Learn Notes</title>
+    <link rel="icon" href="noteimg/bassclef.png">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="style.css">
+    <style media="screen">
+      body{text-align: center;font-family: serif;}
+      .streak{
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Learn Notes</h1>
+
+    <div id="notice"></div>
+
+    <div style="margin:20px;">
+        Note name: <input id="userInput" type="text" size=3 autocomplete="off">
+        <input id="btn" type="button" value="Submit">
+    </div>
+
+    <img id="clef" src="" alt="clef">
+    <img id="note" src="" alt="music note">
+
+    <div id="playerStats" style="display:none">
+        <div class="label"id="streakLabel">
+            Streak
+        </div>
+        <div class="value"id="streakValue">
+        </div>
+        <div class="label" id="scoreLabel">
+            Score
+        </div>
+        <div class="value"id="scoreValue"></div>
+    </div>
+
+
+    <script src="music.js" charset="utf-8"></script>
+
+  </body>
+
+</html>

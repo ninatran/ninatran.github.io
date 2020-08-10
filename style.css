@@ -1,0 +1,49 @@
+.jumbotron{
+    display: flex;
+    align-items: flex-end;
+    padding: 10rem 2rem 1rem;
+}
+
+.display-1{
+    margin: 0px;
+}
+
+.jumbotron h5{
+    font-style: italic;
+}
+
+ul{
+    margin-top:1rem;
+    padding-inline-start: 20px;
+    list-style-type: none;
+}
+
+li{
+    display: flex;
+}
+
+li p{
+    margin-left: 5px;
+    font-style: italic;
+}
+
+a, a:hover{
+    text-decoration: none;
+    color:inherit;
+}
+
+.card{
+    margin: 1rem;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card img{
+    height:179.45px;
+    object-fit: cover;
+    object-position: top;
+}
