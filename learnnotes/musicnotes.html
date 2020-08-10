@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Learn Notes</title>
+    <title>Learn Bass Clef</title>
     <link rel="icon" href="noteimg/bassclef.png">
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <style media="screen">
       body{text-align: center;font-family: serif;}
       .streak{
@@ -14,17 +16,22 @@
     </style>
   </head>
   <body>
-    <h1>Learn Notes</h1>
+    <h1>Learn Bass Clef!</h1>
 
     <div id="notice"></div>
 
-    <div style="margin:20px;">
-        Note name: <input id="userInput" type="text" size=3 autocomplete="off">
-        <input id="btn" type="button" value="Submit">
+    <div class="staff-note">
+        <img id="clef" src="" alt="clef">
+        <img id="note" src="" alt="music note">
     </div>
 
-    <img id="clef" src="" alt="clef">
-    <img id="note" src="" alt="music note">
+
+
+    <div id="guess">
+        <div>Note name:</div>
+        <div><input id="userInput" type="text" size=3 autocomplete="off" maxlength="1"></div>
+        <div><input id="btn" type="button" value="Submit"></div>
+    </div>
 
     <div id="playerStats" style="display:none">
         <div class="label"id="streakLabel">

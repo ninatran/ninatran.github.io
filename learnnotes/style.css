@@ -1,5 +1,18 @@
 body{
-    font-family: serif;
+    font-family: "Arial", sans-serif;
+    background-image:url(https://images.unsplash.com/photo-1533158326339-7f3cf2404354?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1304&q=80);
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-family: 'Caveat', monospace;
+    font-size: 6rem;
+    margin-bottom:0rem;
+}
+
+#notice{
+    margin: 2rem;
 }
 
 #playerStats{
@@ -9,9 +22,55 @@ body{
     grid-column-gap: 5px;
 }
 
-.label{
-
+#guess{
+    margin:2.5rem auto;
+    width: 24rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.value{
 
+#guess div{
+    margin: 5px;
+    font-size: 1.5rem;
+}
+
+#btn{
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.5rem;
+    border: 0px;
+    border-bottom: 1px none black;
+}
+
+#userInput{
+    background-color: #f0f0f0;
+    border: 0px;
+    border-bottom: 1px solid gray;
+    width: 3.75rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+input[type="text" i]{
+    padding:0px;
+}
+
+#userInput:focus{
+    border-width: 0px;
+    background-color:#e2e2e2;
+}
+
+#userInput:active{
+    border-width: 0px;
+}
+
+.staff-note{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0, 0.85);
+    margin: auto;
+    width:24rem;
+    padding: 6rem 1rem;
 }

@@ -11,7 +11,7 @@ const img = [
 
 const notenames = 'G A B C D E F G A'.split(" ");
 let streak = 0;
-let totalGuesses = 0;
+let totalGuesses = 1;
 let correctAnswers = 0;
 
 

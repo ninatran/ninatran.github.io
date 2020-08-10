@@ -47,3 +47,7 @@ a, a:hover{
     object-fit: cover;
     object-position: top;
 }
+
+.buttons{
+    text-align: right;
+}
