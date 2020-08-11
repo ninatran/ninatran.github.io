@@ -73,3 +73,18 @@ a, a:hover{
 .buttons{
     text-align: right;
 }
+
+footer{
+    background-color: var(--light);
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer a{
+    padding:2rem;
+    margin-bottom: 0px;
+}
+
+footer a:hover{
+    color:black;
+}
