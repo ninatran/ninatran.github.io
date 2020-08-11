@@ -6,10 +6,13 @@
     <link rel="icon" href="noteimg/bassclef.png">
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Google Font -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wghy@400;700&display=swap" rel="stylesheet">
+
     <style media="screen">
-      body{text-align: center;font-family: serif;}
+      body{text-align: center;}
       .streak{
         padding: 15px;
       }
@@ -20,7 +23,17 @@
 
     <div id="notice"></div>
 
-    <div class="staff-note">
+    <div class="flashcard">
+        <div id="playerStats" style="display:none">
+            <div class ="stat">
+                <div class="label"id="streakLabel">Streak</div>
+                <div class="value"id="streakValue"></div>
+            </div>
+            <div class="stat">
+                <div class="label" id="scoreLabel">Score</div>
+                <div class="value"id="scoreValue"></div>
+            </div>
+        </div>
         <img id="clef" src="" alt="clef">
         <img id="note" src="" alt="music note">
     </div>
@@ -28,9 +41,9 @@
 
 
     <div id="guess">
-        <div>Note name:</div>
+        <div>Note name</div>
         <div><input id="userInput" type="text" size=3 autocomplete="off" maxlength="1"></div>
-        <div><input id="btn" type="button" value="Submit"></div>
+        <div><input id="btn" type="button" value="Check!"></div>
     </div>
 
     <div id="playerStats" style="display:none">

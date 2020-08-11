@@ -55,7 +55,7 @@ function checkAnswer(){
     streak = 0;
     displayResult(correct);
   }
-  document.getElementById('playerStats').style.display = "grid";
+  document.getElementById('playerStats').style.display = "flex";
   displayStreak();
   displayScore();
   totalGuesses += 1;
