@@ -1,3 +1,7 @@
+:root{
+
+}
+
 .jumbotron{
     display: flex;
     align-items: flex-end;
@@ -74,8 +78,13 @@ a, a:hover{
     text-align: right;
 }
 
+#skills{
+    margin: 0rem;
+    background-color: #a68fbf;
+}
+
 footer{
-    background-color: var(--light);
+    background-color: #e9ecef;
     display: flex;
     justify-content: flex-end;
 }
