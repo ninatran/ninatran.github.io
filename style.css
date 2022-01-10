@@ -12,8 +12,8 @@
     margin: 0px;
 }
 
-.jumbotron h5{
-    font-style: italic;
+.jumbotron h3{
+    font-size: 16px;
 }
 
 ul{
@@ -37,7 +37,7 @@ a, a:hover{
 }
 
 .card{
-    margin: 1rem;
+
 }
 
 .container{
@@ -45,10 +45,13 @@ a, a:hover{
     margin-bottom: 2rem;
 }
 
+
+
 .card-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: 24px;
 }
 
 .card-title{
@@ -96,4 +99,12 @@ footer a{
 
 footer a:hover{
     color:black;
+}
+
+@media only screen and (max-width: 600px){
+
+    #projects{
+        padding-left: 21px;
+    }
+
 }
