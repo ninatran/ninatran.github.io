@@ -1,0 +1,72 @@
+h1, p{
+    text-align: center;
+}
+
+.note-buttons{
+    width: 300px;
+    margin: auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-content: stretch;
+    grid-gap: 10px;
+}
+
+.note-buttons button{
+    padding: 20px 28px;
+    font-size: larger;
+}
+
+.flashcard{
+    border: 2px solid white;
+    position: relative;
+    width: 300px;
+    padding: 96px 48px 8px;
+    margin: auto;
+}
+
+.staff{
+    width: 97%;
+    border-left: 2px solid black;
+    border-right: 8px solid black;
+}
+
+.line{
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.staff-extend{
+    width: 44px;
+    position: absolute;
+    left: 181px;
+    display: none;
+}
+
+.top-extend{
+    top: 74px;
+    display: block;
+}
+
+.no-extend{
+    display: none;
+}
+
+.bottom-extend{
+    display: block;
+}
+
+.clef{
+    position: relative;
+    top:-116px;
+    left: 14px;
+    height: 72px;
+}
+
+.quarternote{
+    position: relative;
+    top: -79px;
+    left: 72px;
+    height: 80px;
+
+}
