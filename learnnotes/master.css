@@ -2,6 +2,10 @@ h1, p{
     text-align: center;
 }
 
+.status{
+    text-align: center;
+}
+
 .note-buttons{
     width: 300px;
     margin: auto;
@@ -21,7 +25,7 @@ h1, p{
     border: 2px solid white;
     position: relative;
     width: 300px;
-    padding: 96px 48px 8px;
+    padding: 48px 48px 8px;
     margin: auto;
 }
 

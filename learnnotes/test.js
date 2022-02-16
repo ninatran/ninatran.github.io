@@ -1,89 +1,97 @@
+/**
+ * NOTES object contains absolute positioning of quarter notes
+ * relative to the staff.
+ * The keys are strings that indicate which line of the staff
+ * the note is located on with 0 being the space below the bottom
+ * line.
+ */
+
 const NOTES = {
-    "-0.5" : {
+    "-0.5": {
         position: "-68px",
         bass: "e2",
         treble: "c4",
         flipped: false,
         staffExtend: "bottom-extend",
     },
-    "0" : {
+    "0": {
         position: "-79px",
         bass: "f2",
         treble: "d4",
         flipped: false,
         staffExtend: "no-extend",
     },
-    "0.5" : {
+    "0.5": {
         position: "-90px",
         bass: "g2",
         treble: "e4",
         flipped: false,
         staffExtend: "no-extend",
     },
-    "1" : {
+    "1": {
         position: "-101px",
         bass: "a2",
         treble: "f4",
         flipped: false,
         staffExtend: "no-extend",
     },
-    "1.5" : {
+    "1.5": {
         position: "-112px",
         bass: "b2",
         treble: "g4",
         flipped: false,
         staffExtend: "no-extend",
     },
-    "2" : {
+    "2": {
         position: "-123px",
         bass: "c3",
         treble: "a4",
         flipped: false,
         staffExtend: "no-extend",
     },
-    "2.5" : {
+    "2.5": {
         position: "-76px",
         bass: "d3",
         treble: "b4",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "3" : {
+    "3": {
         position: "-87px",
         bass: "e3",
         treble: "c5",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "3.5" : {
+    "3.5": {
         position: "-98px",
         bass: "f3",
         treble: "d5",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "4" : {
+    "4": {
         position: "-109px",
         bass: "g3",
         treble: "e5",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "4.5" : {
+    "4.5": {
         position: "-120px",
         bass: "a3",
         treble: "f5",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "5" : {
+    "5": {
         position: "-131px",
         bass: "b3",
         treble: "g5",
         flipped: true,
         staffExtend: "no-extend",
     },
-    "5.5" : {
+    "5.5": {
         position: "-142px",
         bass: "c4",
         treble: "a5",
@@ -93,26 +101,43 @@ const NOTES = {
 }
 const svg = document.getElementById('note');
 const noteButtons = document.querySelectorAll(".note-buttons button");
+
 let answer;
 
-for(btn of noteButtons){
+//Add click event listener to buttons
+for (btn of noteButtons) {
     btn.addEventListener("click", checkAnswer);
-}
-
-function checkAnswer(e){
-    if(e.target.name == answer){
-        console.log("correct");
-        document.querySelector(".status").innerHTML = "Correct!"
-        newRound();
-    }
-    else {
-        document.querySelector(".status").innerHTML = "Incorrect"
-    }
 }
 
 newRound();
 
-function newRound(){
+
+/**
+ * Checks answer when user makes a guess, updates innerHTML of .status element
+ * triggers newRound() if guess is correct
+ * @param e     event       Click event on button
+ */
+function checkAnswer(e) {
+
+    //Remove prompt if it exists
+    if (document.querySelector('.prompt') != null)
+        document.querySelector('.prompt').remove();
+
+    //Tell the user what they guessed
+    document.querySelector(".your-guess").innerHTML = `You guessed ${e.target.name.toUpperCase()}`;
+
+    if (e.target.name == answer) {
+        document.querySelector(".correctness").innerHTML = `That is correct!`;
+        newRound();
+    } else {
+        document.querySelector(".correctness").innerHTML = `That is incorrect. Try again.`;
+    }
+}
+
+/**
+ * Generates random note and displays on staff
+ */
+function newRound() {
     const clef = "bass";
     const randomNote = randomEntry(NOTES);
     answer = randomNote[clef][0];
@@ -120,19 +145,34 @@ function newRound(){
     displayNote(randomNote);
 }
 
-function displayNote(note){
-
+/**
+ * Displays note based on predefined NOTES object
+ * Takes into consideration if note needs to be flipped
+ * Adds staff extend if necessary
+ *
+ * @param note     obj       note object in NOTES
+ */
+function displayNote(note) {
+    // vertically positions note on staff
     svg.style.top = note.position;
 
-    if(note.flipped)
+    // flips note upside-down if necessary
+    if (note.flipped)
         svg.style.transform = "rotate(180deg)";
     else
         svg.style.transform = "none";
 
+    //Adds line through note if positioned above or below grand staff
     document.getElementById("staff-extend").setAttribute("class", `line staff-extend ${note.staffExtend}`)
 }
 
+/**
+ * Returns random note object from object NOTES
+ *
+ * @param obj     obj       NOTES
+ * @return object in NOTES
+ */
 function randomEntry(obj) {
     let keys = Object.keys(obj);
-    return obj[keys[ keys.length * Math.random() << 0]];
+    return obj[keys[keys.length * Math.random() << 0]];
 };
