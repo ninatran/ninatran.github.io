@@ -5,7 +5,6 @@
  * the note is located on with 0 being the space below the bottom
  * line.
  */
-
 const NOTES = {
     "-0.5": {
         position: "-68px",
@@ -103,6 +102,10 @@ const svg = document.getElementById('note');
 const noteButtons = document.querySelectorAll(".note-buttons button");
 
 let answer;
+let totalGuesses = 0;
+let correctGuesses = 0;
+let streak = 0;
+let previousGuessCorrect = true;
 
 //Add click event listener to buttons
 for (btn of noteButtons) {
@@ -110,7 +113,6 @@ for (btn of noteButtons) {
 }
 
 newRound();
-
 
 /**
  * Checks answer when user makes a guess, updates innerHTML of .status element
@@ -125,13 +127,30 @@ function checkAnswer(e) {
 
     //Tell the user what they guessed
     document.querySelector(".your-guess").innerHTML = `You guessed ${e.target.name.toUpperCase()}`;
+    //Update total totalGuesses
+    totalGuesses++;
 
+    //Tell the user if guess is correct
     if (e.target.name == answer) {
         document.querySelector(".correctness").innerHTML = `That is correct!`;
+        correctGuesses++;
+        if(previousGuessCorrect)
+            streak++;
+        previousGuessCorrect = true;
         newRound();
     } else {
         document.querySelector(".correctness").innerHTML = `That is incorrect. Try again.`;
+        streak = 0;
     }
+
+    //Display score
+    document.querySelector(".score").innerHTML = `Score: ${correctGuesses}/${totalGuesses}`;
+    //Display streak
+    document.querySelector(".streak").innerHTML = `Streak: ${streak}`;
+}
+
+function displayScore(){
+
 }
 
 /**
