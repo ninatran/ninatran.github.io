@@ -6,13 +6,13 @@
  * line.
  */
 const NOTES = {
-    "-0.5": {
-        position: "-68px",
-        bass: "e2",
-        treble: "c4",
-        flipped: false,
-        staffExtend: "bottom-extend",
-    },
+    // "-0.5": {
+    //     position: "-68px",
+    //     bass: "e2",
+    //     treble: "c4",
+    //     flipped: false,
+    //     staffExtend: "bottom-extend",
+    // },
     "0": {
         position: "-79px",
         bass: "f2",
@@ -90,13 +90,13 @@ const NOTES = {
         flipped: true,
         staffExtend: "no-extend",
     },
-    "5.5": {
-        position: "-142px",
-        bass: "c4",
-        treble: "a5",
-        flipped: true,
-        staffExtend: "top-extend",
-    },
+    // "5.5": {
+    //     position: "-142px",
+    //     bass: "c4",
+    //     treble: "a5",
+    //     flipped: true,
+    //     staffExtend: "top-extend",
+    // },
 }
 const svg = document.getElementById('note');
 const noteButtons = document.querySelectorAll(".note-buttons button");
