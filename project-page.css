@@ -1,0 +1,66 @@
+h3{
+    font-size: 26px;
+}
+
+#projects .container{
+    padding: 0px;
+}
+
+.container .text-muted{
+    font-style:italic;
+}
+
+.breadcrumb-item{
+    display: inline;
+}
+
+.card{
+    max-width: 800px;
+}
+
+.project-details .container{
+    padding: 0px;
+}
+
+.project-details h2{
+    font-size: 24px;
+}
+
+.project-preview{
+    max-height: 692px;
+}
+
+figure, img{
+    width: 100%;
+}
+
+.img-container{
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+
+}
+
+@media only screen and (max-width: 600px){
+
+    h1{
+        font-size: 36px;
+    }
+
+    figure{
+        width: 100%;
+    }
+    .card{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 992px){
+
+    .img-container{
+        grid-template-columns: 1fr;
+    }
+
+}

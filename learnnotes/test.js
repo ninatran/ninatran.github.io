@@ -136,7 +136,7 @@ function checkAnswer(e) {
         correctGuesses++;
         if(previousGuessCorrect)
             streak++;
-        previousGuessCorrect = true;
+        live
         newRound();
     } else {
         document.querySelector(".correctness").innerHTML = `That is incorrect. Try again.`;
