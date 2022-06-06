@@ -102,17 +102,32 @@ const svg = document.getElementById('note');
 const noteButtons = document.querySelectorAll(".note-buttons button");
 
 let answer;
-let totalGuesses = 0;
-let correctGuesses = 0;
 let streak = 0;
-let previousGuessCorrect = true;
+let longestStreak = 0;
+
+newRound();
+displayStreak();
 
 //Add click event listener to buttons
 for (btn of noteButtons) {
-    btn.addEventListener("click", checkAnswer);
+    btn.addEventListener("click", processGuess);
 }
 
-newRound();
+function processGuess(e){
+    let isCorrect = checkAnswer(e);
+    if(isCorrect){
+        e.target.style.borderColor="lime";
+        streak++;
+        if(streak > longestStreak)
+            longestStreak = streak;
+        setTimeout(newRound,500);
+    }
+    else{
+        e.target.style.borderColor="red";
+        streak=0;
+    }
+    displayStreak();
+}
 
 /**
  * Checks answer when user makes a guess, updates innerHTML of .status element
@@ -121,36 +136,17 @@ newRound();
  */
 function checkAnswer(e) {
 
-    //Remove prompt if it exists
-    if (document.querySelector('.prompt') != null)
-        document.querySelector('.prompt').remove();
+    // //Tell the user what they guessed
+    // document.querySelector(".your-guess").innerHTML = `You guessed ${e.target.name.toUpperCase()}`;
+    // //Update total totalGuesses
+    // totalGuesses++;
 
-    //Tell the user what they guessed
-    document.querySelector(".your-guess").innerHTML = `You guessed ${e.target.name.toUpperCase()}`;
-    //Update total totalGuesses
-    totalGuesses++;
-
-    //Tell the user if guess is correct
+    //Determine if the guess was correct
     if (e.target.name == answer) {
-        document.querySelector(".correctness").innerHTML = `That is correct!`;
-        correctGuesses++;
-        if(previousGuessCorrect)
-            streak++;
-        live
-        newRound();
+        return true;
     } else {
-        document.querySelector(".correctness").innerHTML = `That is incorrect. Try again.`;
-        streak = 0;
+        return false;
     }
-
-    //Display score
-    document.querySelector(".score").innerHTML = `Score: ${correctGuesses}/${totalGuesses}`;
-    //Display streak
-    document.querySelector(".streak").innerHTML = `Streak: ${streak}`;
-}
-
-function displayScore(){
-
 }
 
 /**
@@ -162,6 +158,10 @@ function newRound() {
     answer = randomNote[clef][0];
     console.log(answer);
     displayNote(randomNote);
+    //Clear incorrect borders
+    for(btn of noteButtons){
+        btn.style.borderColor="gray";
+    }
 }
 
 /**
@@ -182,7 +182,7 @@ function displayNote(note) {
         svg.style.transform = "none";
 
     //Adds line through note if positioned above or below grand staff
-    document.getElementById("staff-extend").setAttribute("class", `line staff-extend ${note.staffExtend}`)
+    //document.getElementById("staff-extend").setAttribute("class", `line staff-extend ${note.staffExtend}`)
 }
 
 /**
@@ -195,3 +195,8 @@ function randomEntry(obj) {
     let keys = Object.keys(obj);
     return obj[keys[keys.length * Math.random() << 0]];
 };
+
+function displayStreak(){
+    document.getElementById("streak").innerHTML = streak;
+    document.getElementById("longest-streak").innerHTML = longestStreak;
+}

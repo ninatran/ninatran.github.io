@@ -8,29 +8,28 @@
     <body>
 
         <h1>Music Notes Flash Card</h1>
-        <p class="prompt">Guess the note name</p>
 
-        <div class="feedback">
-            <p class="your-guess"></p>
-            <p class="correctness"></p>
-            <p class="score" style="display:none"></p>
-            <p class="streak" style="display:none"></p>
-            <p class="longest-streak"></p>
-        </div>
+        <div class="switch-field">
+    		<input type="radio" id="radio-treble" name="clef-toggle" value="treble" checked/>
+    		<label for="radio-treble">Treble</label>
+    		<input type="radio" id="radio-bass" name="clef-toggle" value="bass" />
+    		<label for="radio-bass">Bass</label>
+	    </div>
 
         <div class="flashcard">
-            <div class="staff">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <div class="container">
+                <div class="staff">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <!-- <div id="staff-extend" class="line staff-extend"></div> -->
+
+                <img class="clef" src="src/bass-clef.svg" alt="bass cleff">
+                <img id="note" class="quarternote" src="src/quarter-note.svg" alt="quarter note">
             </div>
-            <!-- <div id="staff-extend" class="line staff-extend"></div> -->
-
-            <img class="clef" src="src/bass-clef.svg" alt="bass cleff">
-            <img id="note" class="quarternote" src="src/quarter-note.svg" alt="quarter note">
-
         </div>
 
         <div class="note-buttons">
@@ -43,8 +42,19 @@
             <button type="button" name="b">B</button>
         </div>
 
+        <div id="score">
+            <table>
+                <tr>
+                    <td>Streak</td>
+                    <td id="streak"></td>
+                </tr>
+                <tr>
+                    <td>Longest Streak</td>
+                    <td id="longest-streak"></td>
+                </tr>
+            </table>
+        </div>
 
-
-        <script src="test.js" charset="utf-8"></script>
+        <script src="initializegame.js" charset="utf-8"></script>
     </body>
 </html>
