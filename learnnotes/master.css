@@ -8,6 +8,10 @@ h1, p{
     text-align: center;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 .note-buttons{
     width: 300px;
     margin: auto;
@@ -94,7 +98,6 @@ h1, p{
 
 .switch-field {
 	display: flex;
-	margin-bottom: 36px;
 	overflow: hidden;
 }
 

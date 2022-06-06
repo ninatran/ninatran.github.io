@@ -105,6 +105,8 @@ let answer;
 let streak = 0;
 let longestStreak = 0;
 
+let clef = document.querySelector('input[name="clef-toggle"]:checked').value;
+
 newRound();
 displayStreak();
 
@@ -113,14 +115,18 @@ for (btn of noteButtons) {
     btn.addEventListener("click", processGuess);
 }
 
+//Add event listener for clef switches
+document.querySelector('label[for="radio-treble"]').addEventListener("click", toggleClef);
+document.querySelector('label[for="radio-bass"]').addEventListener("click", toggleClef);
+
 function processGuess(e){
-    let isCorrect = checkAnswer(e);
-    if(isCorrect){
+    if(e.target.name == answer){
         e.target.style.borderColor="lime";
         streak++;
-        if(streak > longestStreak)
+        if(streak > longestStreak){
             longestStreak = streak;
-        setTimeout(newRound,500);
+        }
+        setTimeout(newRound,600);
     }
     else{
         e.target.style.borderColor="red";
@@ -130,38 +136,34 @@ function processGuess(e){
 }
 
 /**
- * Checks answer when user makes a guess, updates innerHTML of .status element
- * triggers newRound() if guess is correct
- * @param e     event       Click event on button
- */
-function checkAnswer(e) {
-
-    // //Tell the user what they guessed
-    // document.querySelector(".your-guess").innerHTML = `You guessed ${e.target.name.toUpperCase()}`;
-    // //Update total totalGuesses
-    // totalGuesses++;
-
-    //Determine if the guess was correct
-    if (e.target.name == answer) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
  * Generates random note and displays on staff
  */
 function newRound() {
-    const clef = "bass";
-    const randomNote = randomEntry(NOTES);
-    answer = randomNote[clef][0];
-    console.log(answer);
-    displayNote(randomNote);
     //Clear incorrect borders
     for(btn of noteButtons){
         btn.style.borderColor="gray";
     }
+    clef = document.querySelector('input[name="clef-toggle"]:checked').value;
+    const randomNote = randomEntry(NOTES);
+    answer = randomNote[clef][0];
+    console.log(answer);
+    displayNote(randomNote);
+
+}
+
+/**
+    Toggles clef
+*/
+function toggleClef(e){
+    let clef = e.target.outerText.toLowerCase();
+    //Display clef
+    document.querySelector('.clef').setAttribute('src', `src/${clef}-clef.svg`)
+    document.querySelector('.clef').style.width = 'auto';
+    document.querySelector('.clef').style.height ='120px';
+    // TODO: Adjust stylings for Treble clef
+
+
+    //Start new round
 }
 
 /**
