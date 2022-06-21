@@ -143,7 +143,9 @@ function newRound() {
     for(btn of noteButtons){
         btn.style.borderColor="gray";
     }
-    clef = document.querySelector('input[name="clef-toggle"]:checked').value;
+    // clef = document.querySelector('input[name="clef-toggle"]:checked').value;
+    document.getElementById("radio-treble").checked = false;
+    document.getElementById("radio-bass").checked = true;
     const randomNote = randomEntry(NOTES);
     answer = randomNote[clef][0];
     console.log(answer);
@@ -155,11 +157,14 @@ function newRound() {
     Toggles clef
 */
 function toggleClef(e){
-    let clef = e.target.outerText.toLowerCase();
-    //Display clef
-    document.querySelector('.clef').setAttribute('src', `src/${clef}-clef.svg`)
-    document.querySelector('.clef').style.width = 'auto';
-    document.querySelector('.clef').style.height ='120px';
+
+    alert("This functionality is under construction")
+    
+    // let clef = e.target.outerText.toLowerCase();
+    // //Display clef
+    // document.querySelector('.clef').setAttribute('src', `src/${clef}-clef.svg`)
+    // document.querySelector('.clef').style.width = 'auto';
+    // document.querySelector('.clef').style.height ='120px';
     // TODO: Adjust stylings for Treble clef
 
 
